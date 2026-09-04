@@ -1,0 +1,134 @@
+body {
+  font-family: sans-serif;
+  background-color: #ecedf0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  transition: background-color 0.3s;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  width: 280px;
+}
+
+.avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 15px;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.avatar:hover {
+  transform: rotate(5deg) scale(1.05);
+}
+
+.subtitle {
+  color: gray;
+  font-size: 14px;
+}
+
+.link-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #FF8000;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s;
+}
+
+.link-btn:hover {
+  background-color: #e07000;
+  transform: translateY(-4px) scale(1.02);
+}
+
+.action-btn {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-weight: 500;
+  transition: transform 0.15s ease, background-color 0.2s;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  background-color: #f9fafb;
+}
+
+.action-btn:active {
+  transform: scale(0.96);
+}
+
+/* แอนิเมชันหัวใจเต้น */
+.heart-pop {
+  animation: pop 0.3s ease-in-out;
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}
+
+/* Toast Popup แจ้งเตือน */
+.toast {
+  position: fixed;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(30, 41, 59, 0.95);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 14px;
+  opacity: 0;
+  transition: bottom 0.4s ease, opacity 0.4s ease;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.toast.show {
+  bottom: 30px;
+  opacity: 1;
+}
+
+/* โหมดมืด */
+.dark-mode {
+  background-color: #18181b;
+  color: white;
+}
+
+.dark-mode .card {
+  background-color: #27272a;
+  color: white;
+}
+
+.dark-mode .action-btn {
+  background-color: #3f3f46;
+  color: white;
+  border-color: #52525b;
+}
+
+.dark-mode .action-btn:hover {
+  background-color: #52525b;
+}
