@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile Very Cool</title>
+
+  <!-- ดึง Font Awesome CDN เพื่อใช้งานไอคอน -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #ecedf0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      transition: background-color 0.3s;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 280px;
+    }
+    .avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 15px;
+      display: block;
+    }
+    .link-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background-color: #FF8000;
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+    .link-btn:hover {
+      background-color: #e07000;
+      transform: translateY(-2px);
+    }
+    .action-btn {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 8px 12px;
+      cursor: pointer;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      font-weight: 500;
+    }
+    .dark-mode {
+      background-color: #18181b;
+      color: white;
+    }
+    .dark-mode .card {
+      background-color: #27272a;
+      color: white;
+    }
+    .dark-mode .action-btn {
+      background-color: #3f3f46;
+      color: white;
+      border-color: #52525b;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <img src="https://scontent.fbkk22-4.fna.fbcdn.net/v/t39.30808-6/690763965_2213555892807465_8937725374309206830_n.jpg?stp=dst-jpg_tt6&cstp=mx960x958&ctp=s960x958&_nc_cat=108&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGsJQujk2gFk60bZxBgLzS6G4oPyunVJuobig_K6dUm6v7A81OMN-ZfpCuptpTLDomMXW4MJR9Foh1f7XGNYJSu&_nc_ohc=nTORZBLPXSIQ7kNvwHWfBcw&_nc_oc=Adoxe7fTZOrxQqEVKutwTG-qjTzgADI2xJv4LSLfyu8230sjnOtrY0R-3-qml87cHls&_nc_zt=23&_nc_ht=scontent.fbkk22-4.fna&_nc_gid=_JyYcRV7bc8wi_58Kbstfw&_nc_ss=7b2a8&oh=00_AQLeM-cF_PRlgNwxD_fxDdUx6kPcINcvJYiUZQb24oM_PQ&oe=6AA01B4E" class="avatar" alt="Avatar"> 
+    <h2 id="name">9ine Grxph</h2>
+    <p style="color: gray; font-size: 14px;">i love you much</p>
+
+    <!-- ลิงก์พร้อมแท็กไอคอน Font Awesome -->
+    <a href="https://github.com/korrawich999" target="_blank" class="link-btn">
+      <i class="fa-brands fa-github"></i> GitHub
+    </a>
+    <a href="https://web.facebook.com/golla.wish" target="_blank" class="link-btn">
+      <i class="fa-brands fa-facebook"></i> Facebook
+    </a>
+
+    <button onclick="countClick()" class="action-btn">
+      <i class="fa-solid fa-heart" style="color: #ef4444;"></i> ถูกใจ: <span id="like-count">0</span>
+    </button>
+    <button onclick="toggleTheme()" class="action-btn">
+      <i class="fa-solid fa-circle-half-stroke"></i> สลับโหมดมืด/สว่าง
+    </button>
+  </div>
+
+  <script>
+    // สลับโหมดธีม
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    // โหลดค่ายอดถูกใจเดิมจาก localStorage เมื่อเปิดหน้าเว็บ
+    let likes = parseInt(localStorage.getItem('my_likes') || '0');
+    document.getElementById('like-count').innerText = likes;
+
+    // ฟังก์ชันนับถูกใจและบันทึกค่าย้อนกลับไปที่ localStorage
+    function countClick() {
+      likes = likes + 1;
+      localStorage.setItem('my_likes', likes);
+      document.getElementById('like-count').innerText = likes;
+    }
+  </script>
+</body>
+</html>
